@@ -16,6 +16,53 @@ ul {
     padding-left: 0;
 }
 
+.hamburger {
+    display: block;
+    width: 30px;
+    height: 30px;
+}
+
+.hamburger span {
+    top: 12px;
+    left: 3px;
+    width: 25px;
+    height: 4px;
+    display: inline-block;
+    background-color: #fff;
+    position: relative;
+}
+
+.hamburger.hamburgerOpen span{
+    background-color: transparent;
+}
+
+.hamburger.hamburgerOpen span::before{
+    transform: rotate(135deg);
+    top: 0;
+}
+
+.hamburger.hamburgerOpen span::after{
+    transform: rotate(45deg);
+    top: 0;
+}
+
+
+
+.hamburger span:before,
+.hamburger span:after {
+    position: absolute;
+    content: "";
+    display: inline-block;
+    width: 25px;
+    height: 4px;
+    background-color: #fff;
+    top: 10px;
+}
+
+.hamburger span:before {
+    top: -10px;
+}
+
 .blackHeader {
     background-color: #000;
 }
@@ -23,6 +70,7 @@ ul {
 .wrapper {
     max-width: 1170px;
     margin: 0 auto;
+    padding: 0 15px;
 }
 
 .flex {
@@ -58,6 +106,7 @@ ul {
     margin-left: 10px;
     align-items: center;
     column-gap: 15px;
+    display: none;
 }
 
 .contacts a {
@@ -70,6 +119,10 @@ ul {
 
 .contacts a:hover {
     color: #f5ed08;
+}
+
+.contactsOpen{
+    display: block;
 }
 
 .blackHeader>*>.flex {
@@ -95,8 +148,16 @@ ul {
     text-align: right;
 }
 
-.whiteHeader ul li {
-    margin-left: 40rem;
+.whiteHeader nav {
+    display: none;
+}
+
+.whiteHeader .flex1 {
+    justify-content: center;
+}
+
+.navulka{
+    column-gap: 40rem;
 }
 
 .navulka a:hover {
@@ -104,17 +165,26 @@ ul {
     border-bottom: 3rem solid #f5ed08;
 }
 
+.navOpen .navulka {
+    display: block;
+}
+
+.flex1Open{
+    display: block;
+    text-align: center;
+}
+
 .syp {
     background: url(../images/fryktovy_syp.jpg) center / cover;
-    padding: 110rem;
+    padding: 110rem 0 30rem;
     text-align: center;
     position: relative;
 }
 
 .syp h2 {
-    font-size: 50rem;
+    font-size: 40rem;
     letter-spacing: 2rem;
-    line-height: 60rem;
+    line-height: 40rem;
     text-transform: uppercase;
     color: #ffffff;
     font-weight: 700;
@@ -125,8 +195,6 @@ ul {
 }
 
 .syp p {
-    width: 1170rem;
-    height: 82rem;
     font-size: 18rem;
     line-height: 28rem;
     color: #ffffff;
@@ -165,7 +233,7 @@ ul {
 }
 
 .arrow {
-    display: inline-block;
+    display: none;
     top: 50%;
     position: absolute;
     width: 40rem;
@@ -210,9 +278,10 @@ ul {
 }
 
 .upsides .flex {
-    justify-content: space-between;
+    justify-content: center;
     margin: 60rem 0;
     column-gap: 30rem;
+    flex-wrap: wrap;
 }
 
 .upside:hover img {
@@ -303,12 +372,12 @@ ul {
 
 .dishes_buttons h2 {
     font-size: 36rem;
-    line-height: 46rem;
+    line-height: 40rem;
     color: #151517;
     font-weight: 700;
     font-family: "Roboto Slab";
     text-align: center;
-    margin-bottom: 0;
+    margin-bottom: 20rem;
 }
 
 .dishes_buttons {
@@ -326,6 +395,7 @@ ul {
     font-weight: 700;
     font-family: "Roboto";
     min-width: 150rem;
+    margin-top: 10rem;
 }
 
 .dishes_buttons .button:hover {
@@ -335,17 +405,17 @@ ul {
 .dishes_buttons .flex {
     justify-content: center;
     column-gap: 10rem;
+    flex-wrap: wrap;
 }
 
 .best_dishes img {
     vertical-align: bottom;
+    width: 100%;
 }
 
 .best_dishes .flex {
     flex-wrap: wrap;
     justify-content: center;
-    column-gap: 30rem;
-    row-gap: 30rem;
 }
 
 .show_more {
@@ -463,6 +533,7 @@ ul {
 }
 
 .contacts1 {
+    width: 95%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -470,7 +541,7 @@ ul {
     background-color: #151517;
     padding: 20px 45px 25px;
     border-radius: 8px;
-
+    box-sizing: border-box;
 }
 
 .contacts1 a {
@@ -516,7 +587,7 @@ ul {
     font-family: "Roboto";
 }
 
-.eatme1 h2 a:hover{
+.eatme1 h2 a:hover {
     text-decoration: underline;
 }
 
@@ -575,6 +646,8 @@ ul {
 .footer .flex {
     column-gap: 30rem;
     flex-wrap: wrap;
+    row-gap: 20rem;
+    justify-content: center;
 }
 
 .footer a {
@@ -584,11 +657,73 @@ ul {
 
 .footer .flex .imgs {
     column-gap: 10rem;
+    justify-content: start;
 }
 
 .column {
     width: 270rem;
 }
+
+.whiteHeader .navOpen{
+    display: inline-block;
+}
+
+@media screen and (min-width: 600px) {
+     
+    .contacts1 {
+        width: 300rem; 
+    }
+
+}
+
+
+@media screen and (min-width: 798px) {
+    .best_dishes .flex {
+        column-gap: 30rem;
+        row-gap: 30rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .whiteHeader nav {
+        display: flex;
+    }
+
+    .dishes_buttons .button {
+        margin-top: 40rem;
+    }
+    
+    .syp h2 {
+        font-size: 50rem;
+    }
+    
+    .syp {
+        padding-bottom: 110rem;
+    }
+    
+    .arrow {
+        display: inline-block;
+    }
+
+    .contacts {
+        display: flex;
+    }
+    
+    .hamburger {
+        display: none;
+    }
+    
+    .whiteHeader .flex1 {
+        justify-content: space-between;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .upsides .flex {
+        flex-wrap: nowrap;
+    }
+}
+
 
 @media screen and (min-width: 1920px) {
     .best_dishes .flex {
